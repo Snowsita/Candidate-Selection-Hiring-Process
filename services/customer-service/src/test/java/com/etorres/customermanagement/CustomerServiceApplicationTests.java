@@ -1,4 +1,4 @@
-package com.etorres.customerservice;
+package com.etorres.customermanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

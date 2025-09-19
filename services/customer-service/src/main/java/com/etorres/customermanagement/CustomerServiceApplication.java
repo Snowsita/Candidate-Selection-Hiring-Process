@@ -1,4 +1,4 @@
-package com.etorres.customerservice;
+package com.etorres.customermanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
