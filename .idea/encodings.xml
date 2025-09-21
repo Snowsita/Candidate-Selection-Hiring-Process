@@ -3,6 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/services/customer-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/customer-service/src/main/java/com/etorres/customermanagement/CustomerServiceApplication.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/services/customer-service/src/main/java/com/etorres/customermanagement/CustomerServiceApplication.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/services/customer-service/src/main/resources/db/migration/V1__create_clients_table.sql" charset="UTF-8" />
   </component>
 </project>

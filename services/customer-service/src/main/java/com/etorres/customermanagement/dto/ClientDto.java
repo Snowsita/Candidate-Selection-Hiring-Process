@@ -4,15 +4,16 @@ import java.time.LocalDate;
 
 /**
  * Data Transfer Object (DTO) para representar la información de un cliente.
+ *
  * @param id
- * @param name
+ * @param firstName
  * @param lastName
  * @param age
  * @param dateOfBirth
  */
 public record ClientDto(
         Long id,
-        String name,
+        String firstName,
         String lastName,
         int age,
         LocalDate dateOfBirth,

@@ -69,7 +69,7 @@ public class ClientServiceImplTest {
 
         assertNotNull(resultDto);
         assertEquals(client1.getId(), resultDto.id());
-        assertEquals("Juan", resultDto.name());
+        assertEquals("Juan", resultDto.firstName());
         verify(clientRepository, times(1)).save(any(Client.class));
     }
 
@@ -85,8 +85,8 @@ public class ClientServiceImplTest {
 
         assertNotNull(resultList);
         assertEquals(2, resultList.size());
-        assertEquals("Juan", resultList.get(0).name());
-        assertEquals("Ana", resultList.get(1).name());
+        assertEquals("Juan", resultList.get(0).firstName());
+        assertEquals("Ana", resultList.get(1).firstName());
         verify(clientRepository, times(1)).findAll();
     }
 
