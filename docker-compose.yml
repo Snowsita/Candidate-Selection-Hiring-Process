@@ -1,31 +1,42 @@
 services:
+
+  customer-service:
+    build:
+      context: ./services/customer-service
+      dockerfile: Dockerfile
+    container_name: customer-service-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/customer_db?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+    depends_on:
+      - mysql-db
+    restart: on-failure
+
   mysql-db:
     image: mysql:8.0
-    container_name: mysql-db
+    container_name: mysql-database
+    ports:
+      - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: customer_db
       MYSQL_USER: user
       MYSQL_PASSWORD: password
-    ports:
-      - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-    networks:
-      - app-network
+    restart: always
 
   adminer:
     image: adminer
-    container_name: adminer
-    restart: unless-stopped
+    container_name: adminer-ui
     ports:
       - "8081:8080"
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+    depends_on:
+      - mysql-db
+    restart: always
 
 volumes:
   mysql-data:
