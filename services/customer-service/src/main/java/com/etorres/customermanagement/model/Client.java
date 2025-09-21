@@ -20,7 +20,7 @@ public class Client {
      * Identificador único del cliente.
      */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
