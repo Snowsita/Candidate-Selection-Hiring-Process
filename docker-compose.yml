@@ -12,7 +12,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=user
       - SPRING_DATASOURCE_PASSWORD=password
     depends_on:
-      - mysql-db
+      mysql-db:
+        condition: service_healthy
     restart: on-failure
 
   mysql-db:
@@ -27,6 +28,11 @@ services:
       MYSQL_PASSWORD: password
     volumes:
       - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "${MYSQL_USER}", "-p${MYSQL_PASSWORD}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     restart: always
 
   adminer:
